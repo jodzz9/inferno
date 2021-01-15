@@ -1,0 +1,514 @@
+<html>
+
+<head>
+	<title>Forest Inferno</title>
+	<style>
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding 0;
+			overflow: hidden;
+			text-align: center;
+			font-family: 'Roboto', sans-serif;
+		}
+
+
+		@media screen and (max-width: 8000px) {
+				{
+				width: 100%;
+
+			}
+
+			#preloader {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				color: #fff;
+				background: #0F1217;
+				z-index: 200;
+			}
+
+			#loading {
+				text-align: center;
+				height: 600px;
+				width: 800px;
+				margin: auto;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			#landing-page {
+				position: absolute;
+				top: 30%;
+				right: 50%;
+			}
+
+			.welcome {
+				text-align: center;
+				font-size: 4em;
+				color: white;
+				padding-bottom: 50px;
+			}
+
+			.mainheader {
+				text-align: center;
+				font-size: 4em;
+				color: #981b1b;
+				font-weight: bolder;
+			}
+
+			#header {
+				position: absolute;
+				width: 100%;
+				z-index: 100;
+			}
+
+
+			#badge {
+				margin-top: 8px;
+				width 90%;
+				max-width: 640px;
+			}
+
+
+			#inner {
+				position: absolute;
+				bottom: 30px;
+				z-index: 100;
+				width: 100%;
+			}
+
+			#header #logo {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.infobox {
+				margin-right: 30px;
+			}
+
+			#button {
+				position: absolute;
+				top: 90%;
+				z-index: 100;
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				justify-content: space-around;
+			}
+
+			h1 {
+				font-size: 1.4em;
+				text-align: left;
+				background-color: #3e0000;
+				color: #ebebeb;
+				padding: 10px 50px;
+			}
+
+			p {
+				font-size: 1.1em;
+				margin: 50px 50px 50px;
+			}
+
+
+			.bolder {
+				color: #962a0a;
+				font-weight: bold;
+			}
+
+			.highlight-small {
+				font-weight: bold;
+			}
+
+
+
+			.learnmore {
+				text-align: center;
+				background-color: #bf1616;
+				color: #ffffff;
+				padding: 10px;
+				border-radius: 10px;
+				position: relative;
+				text-decoration: none;
+				text-align: right;
+				margin-right: 20px;
+			}
+
+			.learnmore:hover {
+				background-color: #d43e3e;
+				transition: 0.5s;
+			}
+
+
+			.info {
+				position: absolute;
+				top: 20%;
+				right: 160px;
+				z-index: 100;
+				width: 30%;
+				background: rgba(0, 0, 0, 0.56);
+				text-align: justify;
+				color: #dbdcdd;
+				-webkit-border-top-left-radius: 30px;
+				-webkit-border-bottom-left-radius: 30px;
+				visibility: hidden;
+				border-top-left-radius: 20px;
+				border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+			}
+
+			.button {
+				padding: 10px 20px;
+				background-color: #bf1616;
+				color: white;
+				border: 3px solid #d43e3e;
+				border-radius: 30px;
+				text-decoration: none;
+			}
+
+			.button:hover {
+				transition: 0.5s;
+				border: 3px solid #fff;
+				font-weight: bold;
+
+			}
+
+	</style>
+</head>
+
+<body>
+
+	<container id="preloader">
+
+		<div id="loading">
+			<p>Loading, Please wait</p>
+			<img src="img/loading.gif">
+		</div>
+
+	</container>
+
+	<div id="header">
+		<a href="index.html">
+			<img src="img/logo.svg" id="badge"></a>
+	</div>
+
+	<div id="landing-page">
+		<div class="mainheader">The Forest Inferno</div>
+	</div>
+
+	<div id="inner">
+		<a href="#" class="button" onclick="mountain();">Temperatures</a>
+		<a href="#" class="button" onclick="river();">Dry Areas</a>
+		<a href="#" class="button" onclick="initFire();">Forest Fires</a>
+		<a href="#" class="button" onclick="water2();">Solution</a>
+
+
+	</div>
+
+	<script src="js/three.min.js"></script>
+	<script src="js/Detector.js"></script>
+	<script src="js/ColladaLoader.js"></script>
+	<script src="js/tween.min.js"></script>
+
+
+	<div class="info" id="mountain">
+		<h1>HEAT RISING</h1>
+		<p>Our planets atmosphere and oceans are heating up <span class="bolder">ten times faster</span> than anytime in the last 65 million years. This has been particularly noticeable in the past twenty years, where the ten hottest years ever recorded have all <span class="bolder">occurred since 1998.</span></p>
+		<p>Even a small temperature increase has deadly consequences: since we started burning fossil fuels, the average global temperature has increased by <span class="bolder">1 degree Celsius</span> which is causing a <span class="bolder">dramatic increase</span> in the frequency of heat waves. </p>
+	</div>
+	<div class="info" id="river">
+		<h1>DROUGHTS</h1>
+		<p>Warming is increasing the severity of <span class="bolder">drought.</span> A warmer atmosphere sucks more water from the soil, increasing the likelihood for drought conditions. Through 2015 and 2016,<span class="bolder"> drought and rising temperatures</span>
+			left over 36 million people in Eastern and Southern Africa facing hunger. The drought was the <span class="bolder">worst</span> in Ethiopias recent history.</p>
+	</div>
+	<div class="info" id="initFire">
+		<h1>WILD FIRES</h1>
+		<p>Wildfires are also an indicator of our rapidly warming atmosphere. An extremely dry winter coupled with unseasonably hot weather fueled devastating wildfires across North America in 2016. These included <span class="bolder">the disastrous fires in Fort McMurray</span>, which led to one of the biggest evacuations in the country's history and went on record as the most expensive disaster in Canadian history with losses expected to total $3.58 billion.
+		</p>
+	</div>
+	<div class="info" id="water2">
+		<div class="welcome">BE THE CHANGE!</div>
+		<div class="infobox">We need to bring down fossil fuels and transition to renewable energy. Renewable energy has become very popular in the past couple years. If we take this step to go green, we can stop the climate crisis!</div><br>
+		<div class="infobox">To learn more please visit <a href="https://350.org/science/" class="learnmore">Learn More</a></div>
+		<br><br>
+	</div>
+    
+	<script>
+		var scene, camera, startFire = false,
+			renderer, model, particleCount, particles, pMaterial, particle, particleSystem, object, water, waterHt = 1,
+			forest = [];
+		lastVal = 0,
+			itemsToLoad = 1,
+			loaded = 0;
+
+		setTimeout(function checkLoad() {
+			$('#preloader').fadeOut();
+			$('#loading_img').delay(250).fadeOut('slow');
+		}, 100000);
+
+		function checkLoad() {
+			loaded++;
+			if (loaded == itemsToLoad) {
+				render();
+				document.getElementById("preloader").style.visibility = 'hidden';
+			}
+		}
+
+		var textureLoader = new THREE.TextureLoader();
+
+		function init() {
+			if (!Detector.webgl) Detector.addGetWebGLMessage();
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+			renderer = new THREE.WebGLRenderer({
+				antialias: true
+			});
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setClearColor(0x68b3db, 1);
+			renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			document.body.appendChild(renderer.domElement);
+
+			var light = new THREE.DirectionalLight(0x4b382c, 4.4);
+			light.position.set(1, 1, 1).normalize();
+			scene.add(light);
+
+
+			var loader = new THREE.ColladaLoader();
+			loader.options.convertUpAxis = true;
+			loader.load('island2.dae', function(collada) {
+				var dae = collada.scene;
+
+				dae.traverse(function(child) {
+
+					if (child instanceof THREE.Mesh) {
+						child.castShadow = true;
+						child.receiveShadow = true;
+					}
+
+				});
+				dae.scale.x = dae.scale.y = dae.scale.z = 0.5;
+				dae.updateMatrix;
+				scene.add(dae);
+
+				particleCount = 3000;
+				particles = new THREE.Geometry();
+				pMaterial = new THREE.PointsMaterial({
+					color: 0xFFFFFF,
+					size: 550,
+					map: textureLoader.load(
+						"img/particle-fire.png"
+					),
+					alphaTest: 0.4,
+					opacity: 0,
+					blending: THREE.AdditiveBlending,
+					transparent: true
+				});
+
+				for (var p = 0; p < particleCount; p++) {
+
+
+					var pX = Math.random() * 500,
+						pY = Math.random() * 450,
+						pZ = Math.random() * 150;
+					particle = new THREE.Vector3(pX, pY, pZ);
+					// create a velocity vector
+					particle.velocity = new THREE.Vector3(
+						0, // x
+						(Math.random() * 0.01), // 
+						0); // z
+
+					// add it to the geometry
+					particles.vertices.push(particle);
+				}
+
+				// create the particle system
+				particleSystem = new THREE.Points(
+					particles,
+					pMaterial);
+
+				particleSystem.sortParticles = true;
+
+				// add it to the scene
+				particleSystem.position.z = 50;
+				scene.add(particleSystem);
+
+				var light = scene.getObjectByName("Light", true);
+				light = light.children[0];
+				light.castShadow = true;
+				light.distance = 1000;
+				light.penumbra = 1;
+
+				checkLoad();
+			});
+
+			camera.position.set(50, 60, 230);
+			camera.rotation.y = 0.7;
+
+            //Fire code taken from Mark's tutorials
+
+		}
+
+
+		function render() {
+			requestAnimationFrame(render);
+
+			//speed
+			var timer = Date.now() * 0.0001;
+
+
+			TWEEN.update();
+			if (startFire) {
+				var pCount = particleCount;
+
+				while (pCount--) {
+					// get the particle
+					pMaterial.opacity = 0.9;
+					var particle = particles.vertices[pCount];
+					//console.log(particle);
+					// check if we need to reset
+					if (particle.y > 200) { //reset particle positon
+						particle.y = -100; //setting new pos
+						particle.velocity.y = Math.random() * 0.9; //new y-velocity
+					}
+
+					// update the velocity
+					particle.velocity.y += Math.random() * .01;
+
+					//particle.y += particle.velocity.y;
+					// and the position
+					particle.add(particle.velocity);
+				}
+
+				particles.verticesNeedUpdate = true;
+
+				particleSystem.position.z += 0.00;
+
+
+
+			}
+
+			//keep displaying scene
+			renderer.render(scene, camera);
+		}
+
+
+		function removeInterface() {
+			document.getElementById("landing-page").style.display = "block";
+			document.getElementById("mountain").style.display = "hidden";
+			document.getElementById("river").style.display = "hidden";
+			document.getElementById("initFire").style.display = "hidden";
+			document.getElementById("water2").style.display = "hidden";
+		};
+
+
+		function mountain() {
+			document.getElementById("landing-page").style.display = "none";
+			document.getElementById("mountain").style.visibility = "visible";
+			document.getElementById("river").style.visibility = "hidden";
+			document.getElementById("initFire").style.visibility = "hidden";
+			document.getElementById("water2").style.visibility = "hidden";
+
+			var pos1 = new TWEEN.Tween(camera.position).to({
+				x: -50,
+				y: 250,
+				z: 150
+			}, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+			var rot1 = new TWEEN.Tween(camera.rotation).to({
+				y: -0.5,
+			}, 3000).easing(TWEEN.Easing.Quadratic.InOut);
+
+
+			pos1.start();
+			rot1.start();
+			renderer.setClearColor(0xa2e0ef, 1);
+
+
+			document.getElementById("landing-page").style.display = "none";
+		}
+
+		function river() {
+			document.getElementById("landing-page").style.display = "hidden";
+			document.getElementById("mountain").style.visibility = "hidden";
+			document.getElementById("river").style.visibility = "visible";
+			document.getElementById("initFire").style.visibility = "hidden";
+			document.getElementById("water2").style.visibility = "hidden";
+
+			var pos2 = new TWEEN.Tween(camera.position).to({
+				x: -200,
+				y: 180,
+				z: 950
+
+			}, 3000).easing(TWEEN.Easing.Quadratic.InOut);
+
+			pos2.start();
+			renderer.setClearColor(0x68b3db, 1);
+			hideFire();
+		}
+
+		function initFire() {
+			document.getElementById("landing-page").style.display = "none";
+			document.getElementById("mountain").style.visibility = "hidden";
+			document.getElementById("river").style.visibility = "hidden";
+			document.getElementById("initFire").style.visibility = "visible";
+			document.getElementById("water2").style.visibility = "hidden";
+
+			var pos3 = new TWEEN.Tween(camera.position).to({
+				x: 30,
+				y: 50,
+				z: 250
+			}, 3000).easing(TWEEN.Easing.Quadratic.InOut);
+			var rot3 = new TWEEN.Tween(camera.rotation).to({
+				x: 0.1,
+			}, 1000).easing(TWEEN.Easing.Quadratic.InOut);
+
+			pos3.start();
+			renderer.setClearColor(0x3398ce, 1);
+			beginFire();
+		}
+
+		function beginFire() {
+			startFire = true;
+			scene.add(particleSystem);
+		}
+
+		function hideFire() {
+			startFire = false;
+			scene.remove(particleSystem);
+		}
+
+
+		function water2() {
+			document.getElementById("mountain").style.visibility = "hidden";
+			document.getElementById("river").style.visibility = "hidden";
+			document.getElementById("initFire").style.visibility = "hidden";
+			document.getElementById("water2").style.visibility = "visible";
+
+
+			var pos4 = new TWEEN.Tween(camera.position).to({
+				x: 100,
+				y: 150,
+				z: 200
+
+			}, 2000).easing(TWEEN.Easing.Quadratic.InOut);
+
+			pos4.start();
+			hideFire();
+		}
+
+		function hideFire() {
+			startFire = false;
+			scene.remove(particleSystem);
+		}
+
+		//call the init function to run the code
+		init();
+
+	</script>
+</body>
+//Reading information taken from the 350.org website
+</html>
